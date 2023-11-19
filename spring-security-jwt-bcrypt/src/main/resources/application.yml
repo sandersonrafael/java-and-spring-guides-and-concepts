@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: senha123
+    url: jdbc:mysql://localhost:3306/db_teste
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+api:
+  security:
+    token:
+      # busca variável de ambiente JWT_SECRET, se não achar, pega o valor default deopis do :
+      secret: ${JWT_SECRET:kF8f.3C-80f_#v8.AkC&-jFd1}
+      # busca JWT_EXPIRES_AT e se não localizar nas envs, pega 1 hora como default
+      expiresAt: ${JWT_EXPIRES_AT:3600000}
