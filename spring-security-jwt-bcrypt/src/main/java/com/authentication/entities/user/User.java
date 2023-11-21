@@ -45,9 +45,9 @@ public class User implements UserDetails {
     @Override
     // SE DER ERRO, TROCAR ISSO ROLE_ADMIN e ROLE_USER (ELA DISSE SEREM PADRÕES)
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.role == UserRole.ADMIN)
-            return List.of(new SimpleGrantedAuthority("ADMIN"), new SimpleGrantedAuthority("USER"));
-        else return List.of(new SimpleGrantedAuthority("USER"));
+        if (this.role == UserRole.ADMIN) // É IMPRESCINDÍVEL USAR O ROLE_NOME_DA_PERMISSÃO, OU NÃO FUNCIONA
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

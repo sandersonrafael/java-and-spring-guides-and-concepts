@@ -40,7 +40,7 @@ public class SecurityConfiguration {
                     .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/register").permitAll()
                     .anyRequest().authenticated()
             ) // adiciona um filtro para verificar o token e extrair as informações do user
-              // antes do filtro UsernamePasswordAuthenticationFilter.class
+              // antes do filtro UsernamePasswordAuthenticationFilter.class que é um filtro pertencente ao próprio contexto do spring security
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
